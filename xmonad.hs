@@ -360,7 +360,7 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = return ()
+myStartupHook = setWMName "LG3D"
 
 
 ------------------------------------------------------------------------
