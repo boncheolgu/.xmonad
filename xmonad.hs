@@ -23,7 +23,7 @@ import           XMonad.Prompt
 import           XMonad.Prompt.RunOrRaise
 import qualified XMonad.StackSet             as W
 import           XMonad.Util.EZConfig        (additionalKeys)
-import           XMonad.Util.Run             (spawnPipe)
+import           XMonad.Util.Run             (spawnPipe, safeSpawn)
 
 
 ------------------------------------------------------------------------
@@ -367,21 +367,21 @@ myStartupHook = setWMName "LG3D"
 -- Run xmonad with all the defaults we set up.
 --
 main = do
-  _ <- spawnPipe "xfce4-volumed"
-  _ <- spawnPipe "xfce4-power-manager"
-  _ <- spawnPipe "xfsettingsd"
+  safeSpawn "xfce4-volumed" []
+  safeSpawn "xfce4-power-manager" []
+  safeSpawn "xfsettingsd" []
   xbar <- spawnPipe "xmobar ~/.xmonad/xmobar.hs"
   -- xbar2 <- spawnPipe "xmobar ~/.xmonad/xmobar2.hs"
-  _ <- spawnPipe "stalonetray"
-  _ <- spawnPipe "nm-applet --sm-disable"
-  _ <- spawnPipe "blueman-applet"
-  _ <- spawnPipe "xscreensaver -nosplash"
-  _ <- spawnPipe "unclutter -idle 5"
-  -- _ <- spawnPipe "xrdb ~/.Xresources"
-  -- _ <- spawnPipe "emacs"
-  -- _ <- spawnPipe "firefox"
-  -- _ <- spawnPipe "slack"
-  -- _ <- spawnPipe "thunar"
+  safeSpawn "stalonetray" []
+  safeSpawn "nm-applet" ["--sm-disable"]
+  safeSpawn "blueman-applet" []
+  safeSpawn "xscreensaver" ["-nosplash"]
+  safeSpawn "unclutter" ["-idle 5"]
+  -- safeSpawn "xrdb" ["~/.Xresources"]
+  -- safeSpawn "emacs"
+  -- safeSpawn "firefox"
+  -- safeSpawn "slack"
+  -- safeSpawn "thunar"
   xmonad $ defaults {
       logHook = dynamicLogWithPP $ xmobarPP {
             ppOutput = hPutStrLn xbar
