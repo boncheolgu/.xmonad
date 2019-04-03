@@ -7,7 +7,7 @@ Config {
     font = "xft:NanumGothicCoding:size=11:antialias=true"
     bgColor = "#000000",
     fgColor = "#ffffff",
-    position = Static { xpos = 0, ypos = 0, width = 1770, height = 25 },
+    -- position = Static { xpos = 0, ypos = 0, width = 1770, height = 25 },
     commands = [
         Run Weather "RKSM" ["-t","<station>: <tempC>C <skyCondition>","-L","64","-H","77","-n","#CEFFAC","-h","#FFB6B0","-l","#96CBFE"] 36000,
         Run MultiCpu ["-t","Cpu: <total0> <total1> <total2> <total3> <total4> <total5> <total6> <total7>","-L","30","-H","60","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC","-w","3"] 10,
@@ -36,6 +36,6 @@ Config {
     ],
     sepChar = "%",
     alignSep = "}{",
-    template = "%StdinReader% }{ %multicpu% %coretemp% %memory% %dynnetwork% <fc=#FFFFCC>%date%</fc> "
+    template = "<fc=#FFFFCC>%date%</fc> %multicpu% %coretemp% %memory% %dynnetwork% | %StdinReader%"
     -- template = "%StdinReader% }{ %multicpu% %coretemp%  %memory%  %dynnetwork%  <fc=#FFFFCC>%date%</fc>  %battery%           "
 }
