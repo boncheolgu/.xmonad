@@ -376,7 +376,7 @@ main = do
   safeSpawn "nm-applet" ["--sm-disable"]
   safeSpawn "blueman-applet" []
   safeSpawn "xscreensaver" ["-nosplash"]
-  safeSpawn "unclutter" ["-idle 5"]
+  -- safeSpawn "unclutter" ["-idle 5"] -- this causes wheel scroll problem in vivaldi browser
   -- safeSpawn "xrdb" ["~/.Xresources"]
   -- safeSpawn "emacs"
   -- safeSpawn "firefox"
