@@ -176,16 +176,16 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask .|. shiftMask, xK_r),
      changeDir promptConfig)
 
-  -- Take a screenshot in select mode.
-  -- After pressing this key binding, click a window, or draw a rectangle with
-  -- the mouse.
-  , ((modMask .|. shiftMask, xK_Print),
-     spawn "scrot -b -e 'eog $f' -m")
+  -- -- Take a screenshot in select mode.
+  -- -- After pressing this key binding, click a window, or draw a rectangle with
+  -- -- the mouse.
+  -- , ((modMask .|. shiftMask, xK_Print),
+  --    spawn "scrot -b -e 'eog $f' -m")
 
   -- Take full screenshot in multi-head mode.
   -- That is, take a screenshot of everything you see.
   , ((modMask, xK_Print),
-     spawn "scrot -b -e 'eog $f' -u")
+     spawn "xfce4-screenshooter")
 
   -- -- Mute volume.
   -- , ((0, 0x1008FF12),
